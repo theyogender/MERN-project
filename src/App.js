@@ -3,17 +3,40 @@ import './App.css';
 import Nav from './Components/Nav';
 import Foot from './Components/Foot';
 import Signup from './Components/Signup';
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom"
+import Login from './Components/Login';
+import PrivateComp from './Components/PrivateComp';
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 function App() {
   return (
     <div className="App">
-      
+      <BrowserRouter>
       <Nav />
-      <Signup/>
+      {/* <Signup/> */}
+
+
+      <Routes>
+       <Route  element={<PrivateComp/>}>
+        <Route path="/Home" element={<h1>Home Page</h1>} />
+        <Route path="/About" element={<h1>About Page</h1>} />
+        <Route path="/Contect" element={<h1>Contect Page</h1>} />
+        </Route>
+        <Route path="/Signup" element={<Signup/>} />
+        <Route path="/login"  element={<Login/>} />
+        
+      </Routes>
+
       <Foot />
+
+      </BrowserRouter>
+     
+     
     </div>
   );
 }
 
 export default App;
+
+
+// eval "$(ssh-agent -s)"
+// ssh-add -l
