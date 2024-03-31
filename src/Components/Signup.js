@@ -28,11 +28,12 @@ export default function Signup(){
         // data =await JSON.stringify(data)
         console.warn(data);
         
-        if(data.Number)
+        if(data.auth)
         {
         //  alert("Responce Sended")
         navigate('/')
-        localStorage.setItem('user',JSON.stringify(data))
+        localStorage.setItem('user',JSON.stringify(data.result))
+        localStorage.setItem('token',JSON.stringify(data.auth))
         } 
         else{
             alert('Enter all details')

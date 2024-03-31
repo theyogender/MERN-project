@@ -5,7 +5,10 @@ import Foot from './Components/Foot';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
 import PrivateComp from './Components/PrivateComp';
+import AddP from './Components/AddP';
+import UpdateP from './Components/UpdateP';
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Prodt from './Components/Prodt';
 
 function App() {
   return (
@@ -18,7 +21,9 @@ function App() {
       <Routes>
        <Route  element={<PrivateComp/>}>
         <Route path="/Home" element={<h1>Home Page</h1>} />
-        <Route path="/About" element={<h1>About Page</h1>} />
+        <Route path="/Prodt" element={<Prodt/>} />
+        <Route path="/Add-Product" element={<AddP/>} />
+        <Route path="/Update/:id" element={<UpdateP/>} />
         <Route path="/Contect" element={<h1>Contect Page</h1>} />
         </Route>
         <Route path="/Signup" element={<Signup/>} />

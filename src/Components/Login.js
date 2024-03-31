@@ -18,20 +18,21 @@ export default function Login(){
         // console.log(name,Number,fname);
 
         try{
-        let data=await fetch('http://127.0.0.1:4500/login',{
+        let result=await fetch('http://127.0.0.1:4500/login',{
             method:'POST',
             body :JSON.stringify({Number,Password}),
             headers: { 'Content-Type': 'application/json' }
 
         });
-        data =await data.json();
+        result =await result.json();
         // data =await JSON.stringify(data)
-        console.warn(data);
+        console.warn(result);
         
-        if(data.Number!=null)
+        if(result.auth)
         {
         //  alert("Responce Sended")
-        localStorage.setItem('user',JSON.stringify(data))
+        localStorage.setItem('user',JSON.stringify(result.data))
+        localStorage.setItem('token',JSON.stringify(result.auth))
         navigate('/')
         } 
         else{
